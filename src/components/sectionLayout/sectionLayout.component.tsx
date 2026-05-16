@@ -1,4 +1,4 @@
-import { Box, BoxComponentProps, BoxProps } from '@mantine/core';
+import { Box, BoxComponentProps } from '@mantine/core';
 import { memo, ReactNode } from 'react';
 
 type ISectionLayout = {
