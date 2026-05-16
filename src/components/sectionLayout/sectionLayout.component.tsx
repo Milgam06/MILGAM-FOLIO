@@ -9,7 +9,7 @@ type ISectionLayout = {
 export const SectionLayout = memo<ISectionLayout>(({ isContentCentered, children, ...rest }) => {
   return (
     <Box
-      w="100vw"
+      w="100%"
       mih="100vh"
       display="flex"
       style={isContentCentered ? { justifyContent: 'center', alignItems: 'center' } : {}}
