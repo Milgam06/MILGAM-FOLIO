@@ -1,5 +1,5 @@
 import { Box, Flex, rem, Text } from '@mantine/core';
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 
 export type ITimelineItem = {
   period: [number, number | string] | number;
@@ -34,13 +34,15 @@ export const Timeline = memo<ITimeline>(({ items }) => {
             />
             {index < lastItemIndex && <Box w={rem(1)} bg="dark.2" style={{ flex: 1 }} />}
           </Flex>
-          <Flex flex={1} direction="column" pl={rem(24)} pb={index < lastItemIndex ? rem(64) : 0}>
-            <Text fz={rem(14)} c="brand.5" fw={600} mb={rem(8)} lts={2.2}>
-              {item.category}
-            </Text>
-            <Text fz={{ base: rem(20), md: rem(24) }} fw={700} c="dark.7" mb={rem(12)}>
-              {item.title}
-            </Text>
+          <Flex flex={1} direction="column" gap={rem(12)} pl={rem(24)} pb={index < lastItemIndex ? rem(64) : 0}>
+            <Flex direction="column" gap={rem(8)}>
+              <Text fz={rem(14)} c="brand.5" fw={600} lts={2.2}>
+                {item.category}
+              </Text>
+              <Text fz={{ base: rem(20), md: rem(24) }} fw={700} c="dark.7">
+                {item.title}
+              </Text>
+            </Flex>
             <Text fz={{ base: rem(14), md: rem(15) }} c="dark.4" lh={1.7}>
               {item.description}
             </Text>

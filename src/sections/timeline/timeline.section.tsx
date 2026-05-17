@@ -35,14 +35,14 @@ export const TimelineSection = memo(() => {
         px={{ base: rem(40), md: rem(50), lg: rem(140) }}
         py={{ base: rem(60), md: rem(80) }}
         gap={rem(80)}>
-        <Flex direction="column" justify="center" gap={rem(20)}>
+        <Flex direction="column" justify="center" gap={rem(20)} bd="1px solid red">
           <Text fz={rem(16)} c="brand.5" fw={500} style={{ letterSpacing: '0.12em' }}>
             TIMELINE
           </Text>
           <Text fz={{ base: rem(32), sm: rem(44), md: rem(52) }} fw={700} c="dark.7" style={{ lineHeight: 1.1 }}>
             Experience & Education
           </Text>
-          <Text fz={{ base: rem(14), md: rem(16) }} c="dark.4" maw={rem(560)} style={{ lineHeight: 1.7 }}>
+          <Text fz={{ base: rem(14), sm: rem(16), md: rem(20) }} c="dark.4" maw={rem(560)} style={{ lineHeight: 1.7 }}>
             보안 특성화 교육부터 실무 인턴십, 현재의 정보보안 전공까지 이어지는 성장 기록입니다.
           </Text>
         </Flex>
