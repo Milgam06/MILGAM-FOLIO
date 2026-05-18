@@ -1,4 +1,4 @@
-import { Box, Flex, rem, Text } from '@mantine/core';
+import { Flex, rem, Text } from '@mantine/core';
 import { memo } from 'react';
 
 export type ITimelineItem = {
@@ -18,21 +18,14 @@ export const Timeline = memo<ITimeline>(({ items }) => {
     <Flex direction="column" justify="center" w="100%">
       {items.map((item, index) => (
         <Flex key={index} w="100%">
-          <Box visibleFrom="sm" w={rem(140)} style={{ flexShrink: 0 }}>
+          <Flex visibleFrom="sm" w={rem(140)} style={{ flexShrink: 0 }}>
             <Text fz={rem(16)} c="dark.3" lts={0.6}>
               {Array.isArray(item.period) ? `${item.period[0]} — ${item.period[1]}` : item.period}
             </Text>
-          </Box>
+          </Flex>
           <Flex direction="column" align="center" w={rem(28)} py={rem(3)} gap={rem(6)} style={{ flexShrink: 0 }}>
-            <Box
-              w={rem(12)}
-              h={rem(12)}
-              bg="brand.5"
-              bdrs="50%"
-              pos="relative"
-              style={{ flexShrink: 0, position: 'relative', zIndex: 1 }}
-            />
-            {index < lastItemIndex && <Box w={rem(1)} bg="dark.2" style={{ flex: 1 }} />}
+            <Flex w={rem(12)} h={rem(12)} bg="brand.5" bdrs="50%" pos="relative" style={{ flexShrink: 0, zIndex: 1 }} />
+            {index < lastItemIndex && <Flex w={rem(1)} bg="dark.2" style={{ flex: 1 }} />}
           </Flex>
           <Flex flex={1} direction="column" gap={rem(12)} pl={rem(24)} pb={index < lastItemIndex ? rem(64) : 0}>
             <Flex direction="column" gap={rem(8)}>
