@@ -39,7 +39,7 @@ export const Header = memo(() => {
         borderBottom: '1px solid #1f1b19',
       }}>
       <Flex w="fit-content" h="fit-content" style={{ cursor: 'pointer' }}>
-        <Text c="dark.7" size={rem(20)} fw={500} style={{ letterSpacing: '0.4rem' }}>
+        <Text c="dark.7" size={rem(20)} fw={500} lts="0.4rem">
           MILGAM
         </Text>
       </Flex>
