@@ -87,7 +87,6 @@ model: 'Claude Sonnet 4.6 (copilot)'
 - 타입은 `any`를 피하고 명확하게 정의한다.
 - API 응답 타입, form 타입, domain 타입을 구분한다.
 - 에러, 로딩, 빈 상태를 명확히 처리한다.
-- 접근성을 고려해 semantic HTML과 적절한 aria 속성을 사용한다.
 - SEO가 필요한 페이지는 metadata 전략을 함께 고려한다.
 - 성능 저하 가능성이 있는 구조는 미리 지적한다.
 
