@@ -30,14 +30,15 @@ export const Header = memo(() => {
       w="100%"
       pos="sticky"
       top={0}
+      style={{
+        zIndex: 100,
+        borderBottom: '1px solid #1f1b19',
+      }}
       bg="#080706"
       justify="space-between"
       align="center"
       px={{ base: 'sm', md: rem(20), lg: rem(40) }}
-      py={{ base: rem(16), xs: rem(4), sm: rem(10), md: rem(12), lg: rem(16) }}
-      style={{
-        borderBottom: '1px solid #1f1b19',
-      }}>
+      py={{ base: rem(16), xs: rem(4), sm: rem(10), md: rem(12), lg: rem(16) }}>
       <Flex w="fit-content" h="fit-content" style={{ cursor: 'pointer' }}>
         <Text c="dark.7" size={rem(20)} fw={500} lts="0.4rem">
           MILGAM

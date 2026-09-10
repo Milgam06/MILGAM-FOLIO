@@ -33,7 +33,7 @@ export const ProjectSection = memo(() => {
           title="Selected Works"
           description="프로젝트 카드는 썸네일, 상태, 타이틀, 한 줄 설명만 유지하고 상세 내용은 클릭 후 확장되는 구조로 설계했습니다."
         />
-        <Flex justify="flex-end" wrap="wrap" gap={rem(8)} role="group" aria-label="프로젝트 상태 필터">
+        <Flex justify="flex-end" wrap="wrap" gap={rem(8)}>
           {PROJECT_FILTERS.map((item) => (
             <Button
               key={item.value}
@@ -49,7 +49,7 @@ export const ProjectSection = memo(() => {
             </Button>
           ))}
         </Flex>
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={rem(24)} verticalSpacing={rem(24)}>
+        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3, xl: 4 }} spacing={rem(24)} verticalSpacing={rem(24)}>
           {projects.map((item) => (
             <ProjectBox
               key={item.id}
