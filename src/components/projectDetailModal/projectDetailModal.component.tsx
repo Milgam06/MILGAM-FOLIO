@@ -116,7 +116,7 @@ export const ProjectDetailModal = memo<IProjectDetailModal>(({ project, opened, 
                 radius="xl"
                 leftSection={isOnAirProject ? <Box w={9} h={9} bg="#f35b4d" bdrs="50%" /> : undefined}
                 style={{ letterSpacing: '0.16em' }}>
-                {isOnAirProject ? 'ON AIR' : project.status}
+                {isOnAirProject ? 'ON AIR' : project.status.toUpperCase()}
               </Badge>
               <Flex direction="column" gap={rem(20)} mt={rem(50)}>
                 <Text c="dark.5" fz={rem(14)} fw={600} lts="0.2em">

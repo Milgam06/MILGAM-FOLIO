@@ -11,7 +11,7 @@ const pretendard = localFont({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html {...{ ...mantineHtmlProps, style: { scrollbarWidth: 'none' } }}>
+    <html {...{ ...mantineHtmlProps, style: { scrollbarWidth: 'none', msOverflowStyle: 'none' } }}>
       <head>
         <title>Milgamfolio</title>
       </head>

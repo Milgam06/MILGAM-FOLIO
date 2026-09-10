@@ -40,7 +40,7 @@ export const ProjectBox = memo<IProjectBox>(({ project, onOpen }) => {
           radius="xl"
           leftSection={isOnAirProject ? <Box component="span" w={7} h={7} bg="brand.5" bdrs="50%" /> : undefined}
           style={{ letterSpacing: '0.12em', borderColor: 'rgba(216, 208, 198, 0.12)' }}>
-          {isOnAirProject ? 'ON AIR' : project.status}
+          {isOnAirProject ? 'ON AIR' : project.status.toUpperCase()}
         </Badge>
         <Flex component="span" align="flex-end" gap={rem(16)} mt={rem(60)}>
           <Text component="span" fz={rem(13)} fw={600} c="dark.5" lts="0.16em" lh={1.5}>
