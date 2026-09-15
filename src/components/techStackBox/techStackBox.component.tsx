@@ -24,6 +24,7 @@ export const TechStackBox = memo<ITechStackBox>(({ techStack }) => {
       bg="#0e0c0a"
       bd={isHovered ? '1px solid brand.5' : '1px solid dark.2'}
       style={{
+        cursor: 'default',
         transition: reducedMotion ? 'none' : 'border-color 180ms ease, transform 180ms ease',
         transform: isHovered && !reducedMotion ? 'translateY(-4px)' : 'none',
       }}>
