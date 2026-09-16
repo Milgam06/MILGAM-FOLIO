@@ -1,2 +1,1 @@
-export * from './TechStack.section';
-
+export * from './techStack.section';

@@ -118,17 +118,14 @@ export const TechStackSection = memo(() => {
           {categories.map((item) => (
             <Tabs.Panel key={item.id} value={item.id} pt={{ base: rem(32), md: rem(48) }}>
               <Flex direction={{ base: 'column', md: 'row' }} gap={{ base: rem(32), md: rem(48) }} align="flex-start">
-                <Flex direction="column" gap={rem(24)} w={{ base: '100%', md: '35%' }} style={{ flexShrink: 0 }}>
-                  <Text fz={rem(14)} c="brand.5" fw={600} lts="0.18em">
-                    {item.label}
-                  </Text>
-                  <Text component="h3" fz={{ base: rem(36), md: rem(52) }} fw={700} c="dark.7" lh={1.1}>
+                <Flex direction="column" gap={rem(14)} w={{ base: '100%', md: '35%' }} style={{ flexShrink: 0 }}>
+                  <Text fz={{ base: rem(36), md: rem(52) }} fw={700} c="dark.7" lh={1.1}>
                     {item.name}
                   </Text>
-                  <Text fz={{ base: rem(16), md: rem(20) }} c="dark.5" lh={1.7}>
+                  <Text fz={{ base: rem(16), md: rem(18) }} c="dark.5" lh={1.5}>
                     {item.description}
                   </Text>
-                  <Text mt={{ base: rem(8), md: rem(20) }} fz={rem(12)} c="dark.5" lts="0.14em" lh={1.5}>
+                  <Text fz={rem(12)} c="dark.5" lts="0.14em" lh={1.5} mt={{ base: rem(8), md: rem(20) }}>
                     {String(item.stacks.length).padStart(2, '0')} —— TECHNOLOGIES
                   </Text>
                 </Flex>
