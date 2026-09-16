@@ -4,3 +4,4 @@ export * from './sectionHeader';
 export * from './timeline';
 export * from './projectBox';
 export * from './projectDetailModal';
+export * from './techStackBox';

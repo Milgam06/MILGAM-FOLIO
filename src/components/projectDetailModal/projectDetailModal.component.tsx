@@ -30,7 +30,7 @@ const ProjectCaseStudy = memo<{ project: IProject }>(({ project }) => {
           data={[
             {
               label: (
-                <Text component="span" c={perspective === 'planning' ? 'dark.0' : 'dark.5'} fz={rem(14)} fw={600}>
+                <Text c={perspective === 'planning' ? 'dark.0' : 'dark.5'} fz={rem(14)} fw={600}>
                   Planning
                 </Text>
               ),
@@ -38,7 +38,7 @@ const ProjectCaseStudy = memo<{ project: IProject }>(({ project }) => {
             },
             {
               label: (
-                <Text component="span" c={perspective === 'dev' ? 'dark.0' : 'dark.5'} fz={rem(14)} fw={600}>
+                <Text c={perspective === 'dev' ? 'dark.0' : 'dark.5'} fz={rem(14)} fw={600}>
                   Dev
                 </Text>
               ),
