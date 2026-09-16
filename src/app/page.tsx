@@ -1,4 +1,4 @@
-import { TitleSection, TimelineSection, ProjectSection, TechStackSection } from '@/sections';
+import { TitleSection, TimelineSection, ProjectSection, TechStackSection, ContactSection } from '@/sections';
 import { Stack } from '@mantine/core';
 
 export default function Home() {
@@ -8,6 +8,7 @@ export default function Home() {
       <TimelineSection />
       <ProjectSection />
       <TechStackSection />
+      <ContactSection />
     </Stack>
   );
 }

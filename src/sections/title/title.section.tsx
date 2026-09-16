@@ -51,10 +51,10 @@ const ProfileBox = memo(() => {
         px={rem(20)}
         py={rem(24)}
         bg="rgba(255, 255, 255, 0.06)"
+        bdrs={rem(32)}
         bd="1px solid #2d2d2d"
         style={{
           overflow: 'hidden',
-          borderRadius: rem(32),
           backdropFilter: 'blur(8px)',
         }}>
         <Flex

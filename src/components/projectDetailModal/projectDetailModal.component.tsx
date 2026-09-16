@@ -92,11 +92,7 @@ export const ProjectDetailModal = memo<IProjectDetailModal>(({ project, opened, 
   return (
     <Modal.Root opened={opened} onClose={onClose} size={rem(960)} xOffset={rem(12)} yOffset={rem(20)} padding={0}>
       <Modal.Overlay backgroundOpacity={0.8} />
-      <Modal.Content
-        bg="dark.0"
-        c="dark.7"
-        radius={rem(36)}
-        style={{ border: '1px solid var(--mantine-color-dark-2)', overflowWrap: 'anywhere' }}>
+      <Modal.Content bg="dark.0" c="dark.7" bd="1px solid dark.2" radius={rem(36)} style={{ overflowWrap: 'anywhere' }}>
         {project && (
           <Modal.Body p={0}>
             <Flex
