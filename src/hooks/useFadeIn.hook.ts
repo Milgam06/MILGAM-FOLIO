@@ -22,12 +22,14 @@ export const useFadeIn = () => {
     const computedStyle = getComputedStyle(element);
     const targetTransform = computedStyle.transform;
     const isTransformNone = targetTransform === 'none';
+
     const originalOpacity = element.style.opacity;
     const originalTransform = element.style.transform;
     const restoreStyles = () => {
       element.style.opacity = originalOpacity;
       element.style.transform = originalTransform;
     };
+
     const animation = animate(
       element,
       {
@@ -37,6 +39,7 @@ export const useFadeIn = () => {
       { duration: 0.6, ease: 'easeOut', autoplay: false, onComplete: restoreStyles },
     );
     animation.time = 0;
+
     const reveal = () => {
       const isWaitingToReveal = animation.state === 'paused';
       if (!isWaitingToReveal) {
