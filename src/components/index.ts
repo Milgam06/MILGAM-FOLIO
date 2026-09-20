@@ -5,3 +5,6 @@ export * from './timeline';
 export * from './projectBox';
 export * from './projectDetailModal';
 export * from './techStackBox';
+export * from './tiltingCard';
+export * from './whoamiDescriptionBox';
+export * from './motionFlex';
