@@ -1,6 +1,9 @@
-import { SectionLayout, Timeline, ITimelineItem, SectionHeader } from '@/components';
-import { Flex, rem } from '@mantine/core';
-import { memo } from 'react';
+'use client';
+
+import { useFadeIn } from '@/hooks';
+import { SectionLayout, Timeline, ITimelineItem, SectionHeader, MotionFlex } from '@/components';
+import { rem } from '@mantine/core';
+import { memo, Ref } from 'react';
 
 const TIMELINE_ITEMS: ITimelineItem[] = [
   {
@@ -24,10 +27,12 @@ const TIMELINE_ITEMS: ITimelineItem[] = [
   },
 ];
 
-export const TimelineSection = memo(() => {
+export const TimelineSection = memo<{ ref?: Ref<HTMLDivElement> }>(({ ref }) => {
+  const fadeInRef = useFadeIn();
   return (
-    <SectionLayout bg="dark.0">
-      <Flex
+    <SectionLayout ref={ref} bg="dark.0">
+      <MotionFlex
+        ref={fadeInRef}
         w="100%"
         direction="column"
         justify="center"
@@ -41,7 +46,7 @@ export const TimelineSection = memo(() => {
           description="보안 특성화 교육부터 실무 인턴십, 현재의 정보보안 전공까지 이어지는 성장 기록입니다."
         />
         <Timeline items={TIMELINE_ITEMS} />
-      </Flex>
+      </MotionFlex>
     </SectionLayout>
   );
 });

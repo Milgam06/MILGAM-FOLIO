@@ -1,9 +1,10 @@
 'use client';
 
-import { ProjectBox, ProjectDetailModal, SectionHeader, SectionLayout } from '@/components';
+import { useFadeIn } from '@/hooks';
+import { ProjectBox, ProjectDetailModal, SectionHeader, SectionLayout, MotionFlex } from '@/components';
 import { DUMMY_PROJECT_CONSTANT, IProject } from '@/constants';
 import { Button, Flex, rem, SimpleGrid } from '@mantine/core';
-import { memo, useMemo, useState } from 'react';
+import { memo, useMemo, useState, Ref } from 'react';
 
 const PROJECT_FILTERS: { value: 'all' | IProject['status']; label: string }[] = [
   { value: 'all', label: 'ALL' },
@@ -12,7 +13,8 @@ const PROJECT_FILTERS: { value: 'all' | IProject['status']; label: string }[] = 
   { value: 'archived', label: 'ARCHIVED' },
 ];
 
-export const ProjectSection = memo(() => {
+export const ProjectSection = memo<{ ref?: Ref<HTMLDivElement> }>(({ ref }) => {
+  const fadeInRef = useFadeIn();
   const [filter, setFilter] = useState<'all' | IProject['status']>('all');
   const [project, setProject] = useState<IProject | null>(null);
   const [opened, setOpened] = useState(false);
@@ -21,8 +23,9 @@ export const ProjectSection = memo(() => {
     return filteredProjects;
   }, [filter]);
   return (
-    <SectionLayout bg="dark.0">
-      <Flex
+    <SectionLayout ref={ref} bg="dark.0">
+      <MotionFlex
+        ref={fadeInRef}
         w="100%"
         direction="column"
         px={{ base: rem(20), sm: rem(40), md: rem(50), lg: rem(140) }}
@@ -62,7 +65,7 @@ export const ProjectSection = memo(() => {
           ))}
         </SimpleGrid>
         <ProjectDetailModal project={project} opened={opened} onClose={() => setOpened(false)} />
-      </Flex>
+      </MotionFlex>
     </SectionLayout>
   );
 });
