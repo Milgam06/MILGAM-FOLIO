@@ -1,10 +1,11 @@
 'use client';
 
-import { SectionLayout } from '@/components';
+import { useFadeIn } from '@/hooks';
+import { SectionLayout, MotionFlex } from '@/components';
 import { YEOJUN_CONSTANT } from '@/constants';
 import { Anchor, Flex, rem, Text } from '@mantine/core';
-import { memo } from 'react';
-import { useHover, useMediaQuery, useReducedMotion } from '@mantine/hooks';
+import { memo, Ref } from 'react';
+import { useHover, useMediaQuery } from '@mantine/hooks';
 
 type IContactBox = {
   label: string;
@@ -15,7 +16,6 @@ type IContactBox = {
 const ContactBox = memo<IContactBox>(({ label, value, href }) => {
   const { hovered, ref } = useHover<HTMLAnchorElement>();
   const canHover = useMediaQuery('(hover: hover)');
-  const reducedMotion = useReducedMotion();
   const isHovered = canHover && hovered;
   const isExternal = href.startsWith('https://');
   return (
@@ -37,10 +37,8 @@ const ContactBox = memo<IContactBox>(({ label, value, href }) => {
         bd={isHovered ? '1px solid dark.5' : '1px solid dark.6'}
         bdrs={rem(20)}
         style={{
-          transition: reducedMotion
-            ? 'none'
-            : 'background-color 180ms ease, border-color 180ms ease,transform 180ms ease',
-          transform: isHovered && !reducedMotion ? 'translateY(-4px)' : 'none',
+          transition: 'background-color 180ms ease, border-color 180ms ease,transform 180ms ease',
+          transform: isHovered ? 'translateY(-4px)' : 'none',
         }}>
         <Flex direction="column" gap={rem(6)} miw={0}>
           <Text fz={rem(12)} fw={500} c="dark.4" lts="0.12em">
@@ -50,7 +48,7 @@ const ContactBox = memo<IContactBox>(({ label, value, href }) => {
             {value}
           </Text>
         </Flex>
-        <Text fz={rem(24)} aria-hidden="true" style={{ flexShrink: 0 }}>
+        <Text fz={rem(24)} style={{ flexShrink: 0 }}>
           ↗
         </Text>
       </Flex>
@@ -58,10 +56,12 @@ const ContactBox = memo<IContactBox>(({ label, value, href }) => {
   );
 });
 
-export const ContactSection = memo(() => {
+export const ContactSection = memo<{ ref?: Ref<HTMLDivElement> }>(({ ref }) => {
+  const fadeInRef = useFadeIn();
   return (
-    <SectionLayout isFullHeight={false} isContentCentered px={rem(14)} py={rem(60)} bg="dark.0">
-      <Flex
+    <SectionLayout ref={ref} isFullHeight={false} isContentCentered px={rem(14)} py={rem(60)} bg="dark.0">
+      <MotionFlex
+        ref={fadeInRef}
         direction="column"
         w="100%"
         maw={rem(960)}
@@ -87,7 +87,7 @@ export const ContactSection = memo(() => {
           <ContactBox label="MAIL" value={YEOJUN_CONSTANT.email} href={`mailto:${YEOJUN_CONSTANT.email}`} />
           <ContactBox label="LINKEDIN" value="View profile" href={YEOJUN_CONSTANT.linkedin} />
         </Flex>
-      </Flex>
+      </MotionFlex>
     </SectionLayout>
   );
 });

@@ -1,9 +1,13 @@
-import { SectionLayout } from '@/components';
+'use client';
+
+import { useFadeIn } from '@/hooks';
+import { SectionLayout, MotionFlex } from '@/components';
 import { YEOJUN_CONSTANT } from '@/constants';
 import { Flex, rem, Text } from '@mantine/core';
-import { memo, useMemo } from 'react';
+import { memo, useMemo, Ref } from 'react';
 
 const ProfileBox = memo(() => {
+  const fadeInRef = useFadeIn();
   const age = useMemo(() => {
     const today = new Date();
     const birthDate = new Date(YEOJUN_CONSTANT.birth);
@@ -14,7 +18,8 @@ const ProfileBox = memo(() => {
   }, []);
   const enNameUpper = YEOJUN_CONSTANT.en_name.toUpperCase();
   return (
-    <Flex
+    <MotionFlex
+      ref={fadeInRef}
       pos="relative"
       w="100%"
       px={{ base: rem(20), md: rem(40) }}
@@ -107,7 +112,7 @@ const ProfileBox = memo(() => {
             </Flex>
             <Flex w="100%" direction="column" justify="center" style={{ gap: rem(10) }}>
               <Text fz={rem(16)} c="#868686">
-                Role
+                Main Role
               </Text>
               <Text fz={rem(30)} fw={900} c="#fff">
                 {YEOJUN_CONSTANT.role[0]}
@@ -137,13 +142,13 @@ const ProfileBox = memo(() => {
           </Flex>
         </Flex>
       </Flex>
-    </Flex>
+    </MotionFlex>
   );
 });
 
-export const TitleSection = memo(() => {
+export const TitleSection = memo<{ ref?: Ref<HTMLDivElement> }>(({ ref }) => {
   return (
-    <SectionLayout isContentCentered pos="relative" bg="dark.0" style={{ overflow: 'hidden' }}>
+    <SectionLayout ref={ref} isContentCentered pos="relative" bg="dark.0" style={{ overflow: 'hidden' }}>
       <ProfileBox />
       <Flex
         pos="absolute"

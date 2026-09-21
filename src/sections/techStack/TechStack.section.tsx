@@ -1,11 +1,13 @@
 'use client';
 
-import { SectionHeader, SectionLayout, TechStackBox } from '@/components';
+import { useFadeIn } from '@/hooks';
+import { SectionHeader, SectionLayout, TechStackBox, MotionFlex } from '@/components';
 import { ETECH_STACK_KIND, TECH_STACK_CATEGORY_CONSTANT, TECH_STACK_CONSTANT } from '@/constants';
 import { Flex, rem, SimpleGrid, Tabs, Text } from '@mantine/core';
-import { FocusEvent, memo, useCallback, useMemo, useState } from 'react';
+import { FocusEvent, memo, useCallback, useMemo, useState, Ref } from 'react';
 
-export const TechStackSection = memo(() => {
+export const TechStackSection = memo<{ ref?: Ref<HTMLDivElement> }>(({ ref }) => {
+  const fadeInRef = useFadeIn();
   const categories = useMemo(
     () =>
       TECH_STACK_CATEGORY_CONSTANT.map((item) => ({
@@ -49,8 +51,9 @@ export const TechStackSection = memo(() => {
   }, []);
 
   return (
-    <SectionLayout bg="dark.0">
-      <Flex
+    <SectionLayout ref={ref} bg="dark.0">
+      <MotionFlex
+        ref={fadeInRef}
         w="100%"
         direction="column"
         px={{ base: rem(20), sm: rem(40), md: rem(50), lg: rem(140) }}
@@ -150,7 +153,7 @@ export const TechStackSection = memo(() => {
             </Tabs.Panel>
           ))}
         </Tabs>
-      </Flex>
+      </MotionFlex>
     </SectionLayout>
   );
 });

@@ -3,7 +3,7 @@
 import { ITechStackConstant } from '@/constants';
 import { Badge, Flex, rem, Text } from '@mantine/core';
 import { memo } from 'react';
-import { useHover, useMediaQuery, useReducedMotion } from '@mantine/hooks';
+import { useHover, useMediaQuery } from '@mantine/hooks';
 
 type ITechStackBox = {
   techStack: ITechStackConstant;
@@ -12,8 +12,8 @@ type ITechStackBox = {
 export const TechStackBox = memo<ITechStackBox>(({ techStack }) => {
   const { hovered, ref } = useHover<HTMLElement>();
   const canHover = useMediaQuery('(hover: hover)');
-  const reducedMotion = useReducedMotion();
   const isHovered = canHover && hovered;
+
   return (
     <Flex
       ref={ref}
@@ -25,8 +25,8 @@ export const TechStackBox = memo<ITechStackBox>(({ techStack }) => {
       bd={isHovered ? '1px solid brand.5' : '1px solid dark.2'}
       style={{
         cursor: 'default',
-        transition: reducedMotion ? 'none' : 'border-color 180ms ease, transform 180ms ease',
-        transform: isHovered && !reducedMotion ? 'translateY(-4px)' : 'none',
+        transition: 'border-color 180ms ease, transform 180ms ease',
+        transform: isHovered ? 'translateY(-4px)' : 'none',
       }}>
       <Flex w={rem(56)} h={rem(56)} justify="center" align="center" bg="dark.1" bd="1px solid dark.2" bdrs={rem(18)}>
         {techStack.icon}

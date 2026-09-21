@@ -3,3 +3,4 @@ export * from './timeline';
 export * from './project';
 export * from './techStack';
 export * from './contact';
+export * from './whoami';
