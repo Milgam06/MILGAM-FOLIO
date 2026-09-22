@@ -3,6 +3,7 @@
 import { ReactNode } from 'react';
 import { createTheme, MantineProvider, Text } from '@mantine/core';
 import '@mantine/core/styles.css';
+import '@mantine/carousel/styles.css';
 
 type IProvider = {
   children: ReactNode;
