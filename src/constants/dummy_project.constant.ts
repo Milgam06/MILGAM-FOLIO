@@ -15,11 +15,10 @@ export type IProject = {
   githubUrl?: string;
 };
 
-// 데모 디자인 확인용 데이터입니다. 실제 프로젝트 정보로 교체할 예정입니다.
 export const DUMMY_PROJECT_CONSTANT: IProject[] = [
   {
     id: 'archive-studio',
-    previewImages: ['https://placehold.co/1600x900/211c19/f4efe7/png?text=Cover'],
+    previewImages: [],
     status: 'onAir',
     category: 'PORTFOLIO CMS EXPERIMENT',
     title: 'Archive Studio',
@@ -39,12 +38,7 @@ export const DUMMY_PROJECT_CONSTANT: IProject[] = [
   },
   {
     id: 'logbook',
-    // 갤러리 테스트용 이미지입니다. 실제 프로젝트 스크린샷으로 교체하세요.
-    previewImages: [
-      'https://placehold.co/1600x900/211c19/f4efe7/png?text=Cover',
-      'https://placehold.co/1600x900/3a3430/f4efe7/png?text=Editor',
-      'https://placehold.co/1600x900/120f0d/f4efe7/png?text=History',
-    ],
+    previewImages: [],
     status: 'released',
     category: 'PERSONAL PRODUCTIVITY TOOL',
     title: 'Logbook',
