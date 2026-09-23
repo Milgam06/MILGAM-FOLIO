@@ -60,7 +60,7 @@ export const TechStackSection = memo<{ ref?: Ref<HTMLDivElement> }>(({ ref }) =>
         py={{ base: rem(60), md: rem(80) }}
         gap={rem(40)}>
         <SectionHeader
-          label="TECH STACK"
+          label="TECH STACK"\
           title="Tools I Work With"
           description="기술 이름을 단순히 나열하기보다 실제 개발 과정에서 어떤 영역에 사용하고 있는지 분류하여 정리했습니다."
         />
