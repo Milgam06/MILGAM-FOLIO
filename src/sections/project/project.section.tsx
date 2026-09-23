@@ -18,10 +18,12 @@ export const ProjectSection = memo<{ ref?: Ref<HTMLDivElement> }>(({ ref }) => {
   const [filter, setFilter] = useState<'all' | IProject['status']>('all');
   const [project, setProject] = useState<IProject | null>(null);
   const [opened, setOpened] = useState(false);
+
   const projects = useMemo(() => {
     const filteredProjects = DUMMY_PROJECT_CONSTANT.filter((item) => filter === 'all' || item.status === filter);
     return filteredProjects;
   }, [filter]);
+
   return (
     <SectionLayout ref={ref} bg="dark.0">
       <MotionFlex

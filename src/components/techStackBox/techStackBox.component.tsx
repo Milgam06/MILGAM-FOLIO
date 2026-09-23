@@ -1,12 +1,12 @@
 'use client';
 
-import { ITechStackConstant } from '@/constants';
+import { ITechStack } from '@/constants';
 import { Badge, Flex, rem, Text } from '@mantine/core';
 import { memo } from 'react';
 import { useHover, useMediaQuery } from '@mantine/hooks';
 
 type ITechStackBox = {
-  techStack: ITechStackConstant;
+  techStack: ITechStack;
 };
 
 export const TechStackBox = memo<ITechStackBox>(({ techStack }) => {
