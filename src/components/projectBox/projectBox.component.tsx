@@ -1,6 +1,7 @@
 import { IProject } from '@/constants';
 import { Badge, Box, Flex, rem, Text, UnstyledButton } from '@mantine/core';
 import { memo } from 'react';
+import Image from 'next/image';
 
 type IProjectBox = {
   project: IProject;
@@ -9,6 +10,7 @@ type IProjectBox = {
 
 export const ProjectBox = memo<IProjectBox>(({ project, onOpen }) => {
   const isOnAirProject = project.status === 'onAir';
+  const coverImage = project.previewImages?.[0];
   return (
     <UnstyledButton
       onClick={onOpen}
@@ -27,10 +29,29 @@ export const ProjectBox = memo<IProjectBox>(({ project, onOpen }) => {
         justify="space-between"
         p={rem(18)}
         bdrs={rem(26)}
+        pos="relative"
         style={{
           aspectRatio: '1.6',
+          overflow: 'hidden',
+          isolation: 'isolate',
           background: `radial-gradient(ellipse at top left, ${isOnAirProject ? 'rgba(184, 74, 63, 0.34)' : 'rgba(216, 208, 198, 0.18)'}, transparent 65%), linear-gradient(145deg, #211c19, #080706)`,
         }}>
+        {coverImage && (
+          <Box pos="absolute" inset={0} style={{ zIndex: -1 }}>
+            <Image
+              src={coverImage}
+              alt={`${project.title} 프로젝트 썸네일`}
+              fill
+              sizes="(max-width: 48em) 100vw, (max-width: 62em) 50vw, (max-width: 88em) 33vw, 25vw"
+              style={{ objectFit: 'cover', objectPosition: 'center top' }}
+            />
+            <Box
+              pos="absolute"
+              inset={0}
+              style={{ background: 'linear-gradient(transparent, var(--mantine-color-dark-0))' }}
+            />
+          </Box>
+        )}
         <Badge
           color={isOnAirProject ? '#f1b5aa' : 'dark.6'}
           variant={isOnAirProject ? 'filled' : 'outline'}
